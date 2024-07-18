@@ -1,0 +1,23 @@
+@font-face {
+  font-family: 'Instrument-Sans';
+  src: url('../assets/fonts/InstrumentSans-VariableFont_wdth\,wght.ttf') format('embedded-opentype')
+      url('../assets/fonts/InstrumentSans-VariableFont_wdth\,wght.ttf') format('woff2'),
+      url('../assets/fonts/InstrumentSans-VariableFont_wdth\,wght.ttf') format('woff'),
+      url('../assets/fonts/InstrumentSans-VariableFont_wdth\,wght.ttf') format('truetype'),
+      url('../assets/fonts/InstrumentSans-VariableFont_wdth\,wght.ttf') format('svg'),
+      url('../assets/fonts/InstrumentSans-Italic-VariableFont_wdth\,wght.ttf') format('embedded-opentype')
+      url('../assets/fonts/InstrumentSans-Italic-VariableFont_wdth\,wght.ttf') format('woff2'),
+      url('../assets/fonts/InstrumentSans-Italic-VariableFont_wdth\,wght.ttf') format('woff'),
+      url('../assets/fonts/InstrumentSans-Italic-VariableFont_wdth\,wght.ttf') format('truetype'),
+      url('../assets/fonts/InstrumentSans-Italic-VariableFont_wdth\,wght.ttf') format('svg'),
+}
+
+.input-active {
+  -webkit-box-shadow: 0px 0px 51px -18px rgba(99,60,255,1);
+  -moz-box-shadow: 0px 0px 51px -18px rgba(99,60,255,1);
+  box-shadow: 0px 0px 51px -18px rgba(99,60,255,1);
+}
+
+* {
+  font-family: 'Instrument-Sans';
+}
