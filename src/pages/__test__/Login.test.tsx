@@ -44,7 +44,7 @@ describe('Login Component', () => {
   test('renders Login component', () => {
     render(<Login />);
     expect(screen.getByText('Login')).toBeInTheDocument();
-    expect(screen.getByText('Add your details below to get back into the app')).toBeInTheDocument();
+    expect(screen.getByText('Add your details to create a personal touch to your profile.')).toBeInTheDocument();
     expect(screen.getByLabelText('Username')).toBeInTheDocument();
     expect(screen.getByLabelText('Password')).toBeInTheDocument();
     expect(screen.getByText('Login')).toBeInTheDocument();
