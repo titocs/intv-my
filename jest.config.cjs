@@ -16,7 +16,6 @@ module.exports = {
     },
   },
 }
-
 // jest.config.js atau jest.config.ts
 // export default {
 //   preset: 'ts-jest',
