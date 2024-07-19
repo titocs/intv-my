@@ -6,10 +6,10 @@ module.exports = {
     '^.+\\.(js|jsx)$': 'babel-jest',
   },
   moduleNameMapper: {
-    "\\.(css|less|sass|scss)$": "identity-obj-proxy",
-    "^.+\\.svg$": "jest-transformer-svg",
+    '\\.(css|less|scss|sss|styl)$': 'identity-obj-proxy',
+    '\\.(gif|ttf|eot|svg)$': 'jest-transform-stub'
   },
-  setupFilesAfterEnv: ['<rootDir>/src/setupTests.ts'],
+  setupFilesAfterEnv: ['<rootDir>/setupTests.ts'],
   globals: {
     'ts-jest': {
       tsconfig: 'tsconfig.json',

@@ -22,7 +22,6 @@ const Login = () => {
       navigate({
         to: '/'
       });
-      // window.location.href = '/'
     }
   })
 
