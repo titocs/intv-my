@@ -3,8 +3,8 @@ import '@testing-library/jest-dom/extend-expect';
 import { useNavigate } from '@tanstack/react-router';
 import { useMutation } from '@tanstack/react-query';
 import toast from 'react-hot-toast';
-import { authApi } from '../../api/auth';
 import Login from '../Login';
+import { authApi } from '../../api/auth';
 
 jest.mock('@tanstack/react-router', () => ({
   useNavigate: jest.fn(),
@@ -14,7 +14,7 @@ jest.mock('@tanstack/react-query', () => ({
   useMutation: jest.fn(),
 }));
 
-jest.mock('../api/auth', () => ({
+jest.mock('../../api/auth', () => ({
   authApi: {
     login: jest.fn(),
   },
@@ -31,8 +31,8 @@ describe('Login Component', () => {
   const mockMutateAsync = jest.fn();
 
   beforeEach(() => {
-    useNavigate.mockReturnValue(mockNavigate);
-    useMutation.mockReturnValue({
+    (useNavigate as jest.Mock).mockReturnValue(mockNavigate);
+    (useMutation as jest.Mock).mockReturnValue({
       mutateAsync: mockMutateAsync,
     });
   });
@@ -52,7 +52,7 @@ describe('Login Component', () => {
 
   test('successful login', async () => {
     const token = 'fake-token';
-    authApi.login.mockResolvedValueOnce({ data: { token } });
+    (authApi.login as jest.Mock).mockResolvedValueOnce({ data: { token } });
 
     render(<Login />);
     
@@ -67,7 +67,7 @@ describe('Login Component', () => {
   });
 
   test('failed login shows error toast', async () => {
-    authApi.login.mockRejectedValueOnce(new Error('Invalid credentials'));
+    (authApi.login as jest.Mock).mockRejectedValueOnce(new Error('Invalid credentials'));
 
     render(<Login />);
 

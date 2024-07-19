@@ -1,9 +1,9 @@
-module.exports = {
+export default {
   preset: 'ts-jest',
   testEnvironment: 'jsdom',
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest', 
-    '^.+\\.(js|jsx)$': 'babel-jest',
+    "^.+\\.tsx?$": "ts-jest",
+    // '^.+\\.(js|jsx)$': 'babel-jest',
   },
   moduleNameMapper: {
     '\\.(css|less|scss|sss|styl)$': 'identity-obj-proxy',
