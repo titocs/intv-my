@@ -26,5 +26,5 @@
     "allowJs": true,
     "esModuleInterop": true
   },
-  "include": ["src", "setupTests.ts", "jest.config.js"]
+  "include": ["src", "vitest.setup.ts"],
 }
