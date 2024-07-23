@@ -1,6 +1,7 @@
 import { Dispatch, SetStateAction, useState } from 'react'
 
 interface InputProps {
+  id: string;
   type: string;
   icon: string;
   label: string;
@@ -11,9 +12,10 @@ interface InputProps {
   value?: string;
   disabled?: boolean;
   setValue: Dispatch<SetStateAction<string>>
+  ariaLabel: string
 }
 
-const Input = ({ icon, type, label, errorMessage, autoComplete, placeholder, required, value, setValue, disabled}: InputProps) => {
+const Input = ({ id, icon, type, label, errorMessage, autoComplete, placeholder, required, value, setValue, disabled, ariaLabel}: InputProps) => {
   const [isFocus, setIsFocus] = useState(false);
   const [isInputEmpty, setIsInputEmpty] = useState(false);
 
@@ -23,7 +25,7 @@ const Input = ({ icon, type, label, errorMessage, autoComplete, placeholder, req
 
   const handleOnBlur = ():void => {
     setIsFocus(false);
-    if(value.length === 0) {
+    if(value?.length === 0) {
       setIsInputEmpty(true);
     }
   }
@@ -37,12 +39,14 @@ const Input = ({ icon, type, label, errorMessage, autoComplete, placeholder, req
 
   return (
     <div>
-      <label htmlFor="" className={`pb-1 block text-sm font-extralight ${isInputEmpty ? 'text-red-custom': ''}`}>{label}</label>
+      <label htmlFor={label} className={`pb-1 block text-sm font-extralight ${isInputEmpty ? 'text-red-custom': ''}`}>{label}</label>
       <div className={`border border-grey-custom-500 transition-border duration-150 overflow-hidden px-4 py-3 rounded-lg flex items-center gap-3 ${isFocus ? 'border-purple-custom-800 shadow-purple-custom-800 input-active': ''} ${isInputEmpty ? 'border-red-custom': ''} `} 
         onFocus={handleOnFocus}
         onBlur={handleOnBlur}>
         <img src={icon} alt="icon input" className={`${icon === '' ? 'hidden' : ''}`} />
         <input 
+          aria-label={label}
+          id={label}
           required={required}
           type={type} 
           autoComplete='email'

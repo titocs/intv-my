@@ -58,6 +58,7 @@ const Login = () => {
                   placeholder='e.g. alex'
                   errorMessage='Cant be empty' 
                   required={true}
+                  ariaLabel='Username'
                   value={username}
                   setValue={setUsername}
                   />
@@ -66,6 +67,7 @@ const Login = () => {
                 <Input 
                   icon={PasswordIcon} 
                   type="password" 
+                  ariaLabel='Password'
                   label='Password' 
                   placeholder='Enter your password'
                   errorMessage='Please check again'

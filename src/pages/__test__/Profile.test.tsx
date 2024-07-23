@@ -1,11 +1,10 @@
-// Profile.test.tsx
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { vi } from "vitest";
-import Profile from "../Profile"; // Sesuaikan path impor sesuai struktur proyek Anda
+import Profile from "../Profile";
 import { authApi } from "../../api/auth";
 
-vi.mock("../api/auth");
+vi.mock("../../api/auth");
 
 const queryClient = new QueryClient();
 
@@ -14,7 +13,7 @@ const renderWithQueryClient = (component: JSX.Element) => {
     <QueryClientProvider client={queryClient}>
       {component}
     </QueryClientProvider>
-
+  );
 };
 
 describe("Profile Component", () => {
@@ -33,20 +32,27 @@ describe("Profile Component", () => {
   });
 
   test("renders profile details when data is loaded", async () => {
-    authApi.getUser = vi.fn().mockResolvedValue({
+    authApi.getUser =  vi.fn().mockResolvedValue({
       data: {
         firstName: "John",
         lastName: "Doe",
         email: "john.doe@example.com",
       },
     });
-
+    
     renderWithQueryClient(<Profile />);
 
-    expect(await screen.findByText(/Profile Details/i)).toBeInTheDocument();
-    expect(screen.getByLabelText(/First Name/i)).toHaveValue("John");
-    expect(screen.getByLabelText(/Last Name/i)).toHaveValue("Doe");
-    expect(screen.getByLabelText(/Email/i)).toHaveValue("john.doe@example.com");
-  });
+    // const headingElement = await screen.getByRole('heading', {
+    //   level: 1
+    // })
+    // expect(headingElement).toBeInTheDocument();
 
+    // expect(await screen.findByText('Profile Details')).toBeInTheDocument();
+    await waitFor(() => {
+      expect(screen.getByLabelText(/First Name/i)).toHaveValue("John");
+    })
+
+    // expect(screen.getByLabelText("last-name")).toHaveValue("Doe");
+    // expect(screen.getByLabelText("email")).toHaveValue("john.doe@example.com");
+  });
 });

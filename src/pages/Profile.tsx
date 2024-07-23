@@ -30,32 +30,40 @@ const Profile = () => {
               </p>
             </div>
 
-            <div className="bg-grey-custom-100 p-5 mx-5 rounded-md my-5 pb-8 md:p-8 md:mx-8">
-              <div className="mb-6">
-                <Input
-                  disabled={true}
-                  label="First Name"
-                  value={data.data?.firstName || ""}
-                  icon=""
-                />
+            <form action="">
+              <div className="bg-grey-custom-100 p-5 mx-5 rounded-md my-5 pb-8 md:p-8 md:mx-8">
+                <div className="mb-6">
+                  <Input
+                    id="First Name"
+                    disabled={true}
+                    label="First Name"
+                    value={data.data?.firstName || ""}
+                    icon=""
+                    ariaLabel="first-name"
+                  />
+                </div>
+                <div className="mb-6">
+                  <Input
+                    id="last-name"
+                    disabled={true}
+                    label="Last Name"
+                    value={data.data?.lastName || ""}
+                    ariaLabel="last-name"
+                    icon=""
+                  />
+                </div>
+                <div className="mb-6">
+                  <Input
+                    id="email"
+                    disabled={true}
+                    label="Email"
+                    value={data.data?.email || ""}
+                    ariaLabel="email"
+                    icon=""
+                  />
+                </div>
               </div>
-              <div className="mb-6">
-                <Input
-                  disabled={true}
-                  label="Last Name"
-                  value={data.data?.lastName || ""}
-                  icon=""
-                />
-              </div>
-              <div className="mb-6">
-                <Input
-                  disabled={true}
-                  label="Email"
-                  value={data.data?.email || ""}
-                  icon=""
-                />
-              </div>
-            </div>
+            </form>
           </div>
         </div>
       </div>
